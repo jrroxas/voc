@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* body {
+  background-image: url(../public/assets/bg.png);
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
+
+.text-color-primary {
+  color: #A8C028;
+}
+
+.text-color-green-uno {
+  color: #799000;
+}
+
+.focus\:ring-color-green-primary:focus {
+  --tw-ring-color: #799000;
+}
+
+.hover\:border-color-green-primary:hover {
+  border-color: #799000;
+}
+
+
+.bg-color-primary-green {
+  background-color: #799000;
+}
+
+.soft-select {
+
+  background: rgba(255, 255, 255, 0.4); /* glass */
+  backdrop-filter: blur(20px);          /* blur effect */
+
+  /* box-shadow:
+    inset 0 1px 4px rgba(255, 255, 255, 0.4),  
+    0 4px 20px rgba(0, 0, 0, 0.06);             */
+}
+
+.soft-input {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: rgba(255, 255, 255, 0.4); /* glass */
+  backdrop-filter: blur(20px);          /* blur effect */
+
+  /* box-shadow:
+    inset 0 1px 4px rgba(255, 255, 255, 0.4), 
+    0 4px 20px rgba(0, 0, 0, 0.06);            */
+}
+
+.soft-input input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 20px;
+  color: #6d755b; /* soft olive color like the sample */
+}
+
+.soft-input input::placeholder {
+  color: #9ca68a;
+}
+
+.left-icon,
+.right-icon {
+  font-size: 26px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.left-icon {
+  background: rgba(255,255,255,0.6);
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.textareaHideScroll {
+  resize: none;
+  overflow-y: scroll;
+
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.textareaHideScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.idea-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: rgba(255, 255, 255, 0.6);  
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08),
+  inset 0 1px 2px rgba(255, 255, 255, 0.5);      
+}
+
+.idea-item:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
