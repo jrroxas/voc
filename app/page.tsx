@@ -11,7 +11,7 @@ import MultiSelect from "./components/multiSelect";
 export default function Home() {
   const [text, setText] = useState("");
   const [noResult, setNoResult] = useState(false);
-  const [results, setResults] = useState<Array<{ pageContent: string; created_at?: string; score?: number; vector_uuid?: string; text_uuid?: string; categories?: string; merge?: boolean; has_parent?: string}>>([]);
+  const [results, setResults] = useState<Array<{ pageContent: string; created_at?: string; score?: number; vector_uuid?: string; text_uuid?: string; categories?: string; merge?: boolean; has_parent?: number | null}>>([]);
   const [loading, setLoading] = useState(false);
   const [inputMode, setInputMode] = useState<"type" | "upload">("type");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -195,7 +195,7 @@ export default function Home() {
       if (data && typeof data === "object" && typeof data.message === "string") {
         setErrorMessage("Can't process your request — make sure your fields are not blank or empty.");
         setResults([]);
-        setResult("");
+        setText("");
         return;
       }
 
