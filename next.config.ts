@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Amplify supports SSR with API routes
+  // removed output: "export" to allow dynamic API routes with database
+  // other configs...
 };
 
 module.exports = nextConfig;
