@@ -97,8 +97,15 @@ export default function Home() {
   }
 
   // Fetch related ideas when a latest idea modal is opened
-  async function fetchRelatedIdeas(hasParent: number | null | undefined) {
+  async function fetchRelatedIdeas(hasParent: number | string | null | undefined) {
     if (hasParent === null || hasParent === undefined) {
+      setRelatedIdeas([]);
+      return;
+    }
+
+    const normalizedHasParent = typeof hasParent === "string" ? Number(hasParent) : hasParent;
+    if (Number.isNaN(normalizedHasParent)) {
+      console.warn("Invalid has_parent value", hasParent);
       setRelatedIdeas([]);
       return;
     }
@@ -110,7 +117,7 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ hasParent }),
+        body: JSON.stringify({ hasParent: normalizedHasParent }),
       });
       const data = await response.json();
       if (response.ok && Array.isArray(data)) {
